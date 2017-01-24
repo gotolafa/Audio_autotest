@@ -4,24 +4,32 @@ import sys
 import shutil
 import chardet
 import time
-
-#----------------------------------------------------------------------
+import subprocess
+#-------------------------------------------------------------------------------
+global play_process
+#-------------------------------------------------------------------------------
 def Audio_Loop():
     count = 0
     print "Start test"
 
-    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_pcm.wav')
+    play_process = subprocess.Popen(['omxplayer','Pink_pcm.wav'],stdout=True)
+    #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_pcm.wav')
     time.sleep(7)
-    os.system('q')
-    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_ac3.ac3')
+    playProcess.stdin.write('q')
+    #os.system('q')
+    play_process = subprocess.Popen(['omxplayer','Pink_ac3.ac3'],stdout=True)
+    #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_ac3.ac3')
     time.sleep(7)
-    os.system('q')
-    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_dts.dtshd')
+    playProcess.stdin.write('q')
+    #os.system('q')
+    play_process = subprocess.Popen(['omxplayer','Pink_dts.dtshd'],stdout=True)
+    #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_dts.dtshd')
     time.sleep(7)
-    os.system('q')  
+    playProcess.stdin.write('q')
+    #os.system('q')
     
 
-#----------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 if __name__ == "__main__":
 
     #if len(sys.argv) < 2:
