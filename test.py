@@ -12,10 +12,13 @@ def Audio_Loop():
 
     os.system('omxplayer -p -o hdmi Pink_pcm.wav')
     time.sleep(7)
+    os.system('q')
     os.system('omxplayer -p -o hdmi Pink_ac3.ac3')
     time.sleep(7)
+    os.system('q')
     os.system('omxplayer -p -o hdmi Pink_dts.dtshd')
-    time.sleep(7)    
+    time.sleep(7)
+    os.system('q')  
     
 
 #----------------------------------------------------------------------
