@@ -12,21 +12,21 @@ def Audio_Loop():
     count = 0
     print "Start test"
 
-    play_process = subprocess.Popen(['omxplayer','Pink_pcm.wav'],stdout=True)
+    play_process = subprocess.Popen(['omxplayer','Pink_pcm.wav'],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE, close_fds = True)
     #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_pcm.wav')
     time.sleep(7)
     play_process.stdin.write('q')
-    #os.system('q')
-    play_process = subprocess.Popen(['omxplayer','Pink_ac3.ac3'],stdout=True)
+    play_process.stdin.flush()
+    play_process = subprocess.Popen(['omxplayer','Pink_ac3.ac3'],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE, close_fds = True)
     #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_ac3.ac3')
     time.sleep(7)
     play_process.stdin.write('q')
-    #os.system('q')
-    play_process = subprocess.Popen(['omxplayer','Pink_dts.dtshd'],stdout=True)
+    play_process.stdin.flush()
+    play_process = subprocess.Popen(['omxplayer','Pink_dts.dtshd'],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE, close_fds = True)
     #os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_dts.dtshd')
     time.sleep(7)
     play_process.stdin.write('q')
-    #os.system('q')
+    play_process.stdin.flush()
     
 
 #-------------------------------------------------------------------------------
