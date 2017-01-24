@@ -10,13 +10,13 @@ def Audio_Loop():
     count = 0
     print "Start test"
 
-    os.system('omxplayer -p -o hdmi Pink_pcm.wav')
+    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_pcm.wav')
     time.sleep(7)
     os.system('q')
-    os.system('omxplayer -p -o hdmi Pink_ac3.ac3')
+    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_ac3.ac3')
     time.sleep(7)
     os.system('q')
-    os.system('omxplayer -p -o hdmi Pink_dts.dtshd')
+    os.system('omxplayer -audio_fifo 10 -p -o hdmi Pink_dts.dtshd')
     time.sleep(7)
     os.system('q')  
     
@@ -24,10 +24,10 @@ def Audio_Loop():
 #----------------------------------------------------------------------
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:
-        print 'Audio Test'
-        sys.exit()
+    #if len(sys.argv) < 2:
+    #    print 'Audio Test'
+    #    sys.exit()
 
-    if(sys.argv[1] == 'test'):
+    #if(sys.argv[1] == 'test'):
         Audio_Loop()
     
